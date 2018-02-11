@@ -1,8 +1,8 @@
 # Backgroundable Android
-Collection of stock apps and mechanisms from various manufacturers, which might affect background tasks and scheduled alarms with AlarmManager, etc., or apps in background in general. Also focusing on those, which prevents 3rd party apps from auto start after device boot.
+Collection of stock apps and mechanisms from various manufacturers, which might affect background tasks and scheduled alarms with AlarmManager, etc., or apps in background in general. Also focusing on those, which prevent 3rd party apps from auto start after device boot.
 
 ## Why?
-Most of modern Android devices come with an app or mechanism, which automagically tries to figure out how to save battery and as a result might kill certain 3rd party apps. This might result in removing scheduled tasks and jobs, e.g. (alarms not going off, push notification not working, etc.). In many cases this happens completely independent from battery saving mechanisms of Android (such as Doze, which can be controlled correctly).
+Most of modern Android devices come with an app or mechanism, which automagically tries to figure out how to save battery and as a result might kill certain 3rd party apps. This might result in removing scheduled tasks and jobs, (e.g. alarms not going off, push notification not working, etc.). In many cases this happens completely independent from battery saving mechanisms of Android (such as Doze, which can be controlled correctly).
 
 ## How?
 Though battery saving is important and 3rd party apps should be designed with this in mind, if the basic function of an app requires it to be kept running in the background then there should be a way to add it to exception lists. Unfortunately, in most cases, this is not possible from within the app itself. However, in many cases, there are white lists where users can manually add certain 3rd party apps.
@@ -51,14 +51,14 @@ new Intent().setComponent(new ComponentName("com.samsung.android.lool",
                         "com.samsung.android.sm.ui.battery.BatteryActivity"))
 ```
 
-### Huawei Protected Apps
+### Huawei Protected Apps (older EMUI)
 **Manufacturer:** Huawei
 
 **Build.MANUFACTURER:** huawei
 
 **Build.MODEL:** NOT nexus
 
-**Known restrictions:** Not applies to Huawei Nexus devices (which run stock Android)
+**Known restrictions:** Not applies to Huawei Nexus devices (which run stock Android). Up to Android 7.
 
 **Steps:**
 1. Settings
@@ -78,6 +78,36 @@ or
 new Intent().setComponent(new ComponentName("com.huawei.systemmanager",
                         "com.huawei.systemmanager.optimize.process.ProtectActivity"))
 ```
+
+### Huawei Phone manager (newer EMUI) NEEDS VERIFICATION
+**Manufacturer:** Huawei
+
+**Build.MANUFACTURER:** huawei
+
+**Build.MODEL:** NOT nexus
+
+**Known restrictions:** Not applies to Huawei Nexus devices (which run stock Android). From Android 7.
+
+**Steps:**
+1. Phone Manager
+2. Battery
+3. Lock screen cleanup
+4. Set to 'Don't close' (unchecked)
+
+or
+
+1. Settings
+2. Apps
+3. App name
+4. Enable App Auto-Launch
+5. Enable Keep running after screen off
+
+**Intents:**
+
+```java
+//TODO
+```
+
 
 ### Sony STAMINA
 **Manufacturer:** Sony
@@ -167,4 +197,25 @@ new Intent("miui.intent.action.OP_AUTO_START").addCategory(Intent.CATEGORY_DEFAU
 
 ```java
 getPackageManager().getLaunchIntentForPackage("com.asus.mobilemanager")
+```
+
+
+### OPPO auto start NEEDS VERIFICATION
+**Manufacturer:** OPPO
+
+**Build.MANUFACTURER:** oppo
+
+**Build.MODEL:** Applies to all
+
+**Known restrictions:** ColorOS 3.2
+
+**Steps:**
+1. Phone Manager
+2. Privacy Permissions
+3. Startup Manager
+
+**Intents:**
+
+```java
+//TODO
 ```
