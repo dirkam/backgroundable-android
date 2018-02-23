@@ -51,7 +51,7 @@ new Intent().setComponent(new ComponentName("com.samsung.android.lool",
                         "com.samsung.android.sm.ui.battery.BatteryActivity"))
 ```
 
-### Huawei Protected Apps (older EMUI)
+### Huawei Protected Apps (EMUI < 5)
 **Manufacturer:** Huawei
 
 **Build.MANUFACTURER:** huawei
@@ -79,7 +79,7 @@ new Intent().setComponent(new ComponentName("com.huawei.systemmanager",
                         "com.huawei.systemmanager.optimize.process.ProtectActivity"))
 ```
 
-### Huawei Phone manager (newer EMUI) NEEDS VERIFICATION
+### Huawei Phone manager (EMUI 5)
 **Manufacturer:** Huawei
 
 **Build.MANUFACTURER:** huawei
@@ -90,22 +90,20 @@ new Intent().setComponent(new ComponentName("com.huawei.systemmanager",
 
 **Steps:**
 1. Phone Manager
-2. Battery
-3. Lock screen cleanup
-4. Set to 'Don't close' (unchecked)
+2. Lock screen cleanup
+3. Make sure App is NOT enabled (unchecked)
 
 or
 
 1. Settings
-2. Apps
-3. App name
-4. Enable App Auto-Launch
-5. Enable Keep running after screen off
+2. Battery
+3. Lock screen cleanup
+4. Set App to 'Don't close' (unchecked)
 
 **Intents:**
 
 ```java
-//TODO
+getPackageManager().getLaunchIntentForPackage("com.huawei.systemmanager")
 ```
 
 
