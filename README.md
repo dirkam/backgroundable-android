@@ -198,14 +198,14 @@ getPackageManager().getLaunchIntentForPackage("com.asus.mobilemanager")
 ```
 
 
-### OPPO auto start NEEDS VERIFICATION
+### OPPO Auto Start
 **Manufacturer:** OPPO
 
 **Build.MANUFACTURER:** oppo
 
 **Build.MODEL:** Applies to all
 
-**Known restrictions:** ColorOS 3.2
+**Known restrictions:** ColorOS 3+ (Android 7+)
 
 **Steps:**
 1. Phone Manager
@@ -215,5 +215,5 @@ getPackageManager().getLaunchIntentForPackage("com.asus.mobilemanager")
 **Intents:**
 
 ```java
-//TODO
+getPackageManager().getLaunchIntentForPackage("com.color.safecenter");
 ```
