@@ -128,7 +128,7 @@ getPackageManager().getLaunchIntentForPackage("com.huawei.systemmanager")
 //TODO
 ```
 
-### Xiaomi Auto Start and Battery usage monitoring
+### Xiaomi Auto Start and Battery usage monitoring and Power settings
 **Manufacturer:** Xiaomi
 
 **Build.MANUFACTURER:** xiaomi
@@ -151,11 +151,21 @@ and
 2. Permissions
 3. Auto-run management
 
+and
+
+1. Settings
+2. Additional Settings
+3. Battery & Performance
+4. Power
+5. Settings button
+6. Disable internet -> Never
+
 **Intents:**
 
 ```java
 new Intent("miui.intent.action.POWER_HIDE_MODE_APP_LIST").addCategory(Intent.CATEGORY_DEFAULT)
 new Intent("miui.intent.action.OP_AUTO_START").addCategory(Intent.CATEGORY_DEFAULT)
+new Intent().setComponent(ComponentName("com.miui.securitycenter", "com.miui.powercenter.PowerSettings"))
 ```
 
 ### Elephone background task clearer
